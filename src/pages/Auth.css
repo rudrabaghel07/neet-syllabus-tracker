@@ -5,11 +5,12 @@
 .auth-page {
   min-height: 100vh;
   position: relative;
-  overflow: hidden;
+  overflow-x: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 30px 16px;
+  padding: 20px 12px;
+  box-sizing: border-box;
   background:
     radial-gradient(circle at 15% 20%, rgba(59, 130, 246, 0.22), transparent 30%),
     radial-gradient(circle at 85% 80%, rgba(139, 92, 246, 0.20), transparent 30%),
@@ -91,7 +92,9 @@
   position: relative;
   z-index: 5;
   width: min(430px, 100%);
-  padding: 38px;
+  max-width: 100%;
+  padding: clamp(24px, 4vw, 38px);
+  box-sizing: border-box;
   border: 1px solid rgba(255, 255, 255, 0.13);
   border-radius: 24px;
   background: rgba(255, 255, 255, 0.94);
@@ -162,14 +165,14 @@
 .auth-heading h1 {
   margin: 0;
   color: #111827;
-  font-size: 30px;
+  font-size: clamp(1.5rem, 4vw, 1.875rem);
   line-height: 1.15;
 }
 
 .auth-heading > p:last-child {
   margin: 10px 0 0;
   color: #64748b;
-  font-size: 14px;
+  font-size: clamp(0.9rem, 2.2vw, 0.95rem);
   line-height: 1.5;
 }
 
@@ -198,6 +201,7 @@
   align-items: center;
   gap: 10px;
   padding: 0 14px;
+  min-height: 48px;
   border: 1.5px solid #dbe3ef;
   border-radius: 12px;
   background: #f8fafc;
@@ -222,6 +226,7 @@
   border: none;
   outline: none;
   padding: 14px 0;
+  font-size: 0.95rem;
   background: transparent;
   color: #111827;
   font-size: 14px;
@@ -243,6 +248,7 @@
   width: 100%;
   margin-top: 4px;
   padding: 14px 18px;
+  min-height: 48px;
   border: none;
   border-radius: 12px;
   background: linear-gradient(110deg, #2563eb, #4f46e5, #7c3aed);
@@ -327,8 +333,9 @@
 
 .auth-message p {
   margin: 0;
-  font-size: 12px;
+  font-size: 0.85rem;
   line-height: 1.5;
+  overflow-wrap: anywhere;
 }
 
 @keyframes messageIn {
@@ -420,20 +427,28 @@
 
 @media (max-width: 480px) {
   .auth-page {
-    padding: 20px 12px;
+    padding: 16px 10px;
   }
 
   .auth-card {
-    padding: 28px 20px;
+    padding: 24px 16px;
     border-radius: 20px;
   }
 
   .auth-heading h1 {
-    font-size: 26px;
+    font-size: 1.4rem;
   }
 
   .auth-logo {
     width: 56px;
     height: 56px;
+  }
+
+  .auth-switch {
+    font-size: 0.9rem;
+  }
+
+  .resend-button {
+    font-size: 0.9rem;
   }
 }

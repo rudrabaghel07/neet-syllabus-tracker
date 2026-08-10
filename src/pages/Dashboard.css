@@ -1,6 +1,7 @@
 .dashboard {
   min-height: 100vh;
-  padding: 24px 18px 40px;
+  padding: 20px 12px 32px;
+  box-sizing: border-box;
   background:
     radial-gradient(circle at top left, rgba(37, 99, 235, 0.2), transparent 26%),
     radial-gradient(circle at 20% 20%, rgba(16, 185, 129, 0.15), transparent 20%),
@@ -42,7 +43,7 @@
   align-items: center;
   gap: 20px;
   margin-bottom: 22px;
-  padding: 24px 28px;
+  padding: clamp(18px, 3vw, 28px);
   border: 1px solid rgba(148, 163, 184, 0.2);
   border-radius: 24px;
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(240, 247, 255, 0.93));
@@ -50,10 +51,16 @@
   backdrop-filter: blur(12px);
 }
 
+.dashboard-title {
+  min-width: 0;
+}
+
 .dashboard-title h1 {
   margin: 0;
-  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-size: clamp(1.4rem, 3.5vw, 2.2rem);
+  line-height: 1.2;
   color: #111827;
+  overflow-wrap: anywhere;
 }
 
 .dashboard.dark .dashboard-title h1,
@@ -67,12 +74,14 @@
 .dashboard-title p {
   margin-top: 6px;
   color: #64748b;
+  overflow-wrap: anywhere;
 }
 
 .dashboard-user {
   margin-top: 8px;
   color: #1d4ed8;
   font-weight: 700;
+  overflow-wrap: anywhere;
 }
 
 .dashboard.dark .dashboard-title p,
@@ -102,6 +111,8 @@
   display: flex;
   align-items: center;
   gap: 10px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
 }
 
 .theme-toggle,
@@ -112,6 +123,8 @@
   cursor: pointer;
   font-size: 0.95rem;
   font-weight: 700;
+  min-height: 44px;
+  white-space: nowrap;
 }
 
 .theme-toggle {
@@ -181,6 +194,7 @@
 .progress-summary {
   color: #475569;
   font-weight: 600;
+  overflow-wrap: anywhere;
 }
 
 .progress-stats {
@@ -192,7 +206,7 @@
 
 .stat-card.water-card {
   position: relative;
-  height: 132px;
+  min-height: 132px;
   padding: 0;
   overflow: hidden;
   border-radius: 18px;
@@ -267,11 +281,12 @@
   margin: 0;
   font-size: 0.95rem;
   color: #475569;
+  overflow-wrap: anywhere;
 }
 
 .water-content p {
   margin: 8px 0 0;
-  font-size: 1.45rem;
+  font-size: clamp(1.05rem, 2.2vw, 1.45rem);
   font-weight: 800;
   color: #111827;
 }
@@ -325,6 +340,7 @@
   cursor: pointer;
   font-size: 0.95rem;
   font-weight: 700;
+  min-height: 44px;
   box-shadow: 0 8px 16px rgba(15, 23, 42, 0.04);
 }
 
@@ -412,17 +428,24 @@
   gap: 12px;
   flex: 1;
   flex-wrap: wrap;
+  min-width: 0;
+}
+
+.unit-title > span:first-child {
+  overflow-wrap: anywhere;
 }
 
 .unit-progress-text {
   font-size: 0.9rem;
   font-weight: 600;
   color: #64748b;
+  overflow-wrap: anywhere;
 }
 
 .unit-toggle {
   color: #2563eb;
   font-size: 1rem;
+  flex-shrink: 0;
 }
 
 .unit-progress {
@@ -441,9 +464,11 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 8px;
   margin-bottom: 8px;
   font-size: 0.9rem;
   color: #64748b;
+  flex-wrap: wrap;
 }
 
 .unit-progress-bar {
@@ -475,6 +500,7 @@
   padding: 14px 20px;
   border-top: 1px solid #f1f5f9;
   transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  min-width: 0;
 }
 
 .topic-item:hover {
@@ -487,7 +513,9 @@
 
 .topic-name {
   flex: 1;
+  min-width: 0;
   color: #0f172a;
+  overflow-wrap: anywhere;
   transition: color 0.2s ease, font-weight 0.2s ease;
 }
 
@@ -509,6 +537,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
+  min-width: 0;
 }
 
 .complete-btn,
@@ -519,6 +548,7 @@
   cursor: pointer;
   font-size: 0.85rem;
   font-weight: 700;
+  min-height: 44px;
   transition: transform 0.2s ease, filter 0.2s ease;
 }
 
@@ -581,29 +611,23 @@
 
   .dashboard-header {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: stretch;
     padding: 20px;
   }
 
-  .topic-item {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .topic-actions {
+  .header-actions {
     width: 100%;
+    justify-content: flex-start;
   }
 
-  .complete-btn,
-  .revision-btn {
-    flex: 1;
-    text-align: center;
+  .theme-toggle,
+  .logout-btn {
+    flex: 1 1 140px;
+    justify-content: center;
   }
-}
 
-@media (max-width: 480px) {
-  .progress-stats {
-    grid-template-columns: 1fr;
+  .progress-card {
+    padding: 20px;
   }
 
   .progress-card-heading {
@@ -611,12 +635,35 @@
     align-items: flex-start;
   }
 
+  .progress-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .subject-tabs {
     gap: 8px;
   }
 
   .subject-tab {
-    flex: 1;
+    flex: 1 1 calc(50% - 8px);
+    justify-content: center;
+    text-align: center;
+  }
+
+  .topic-item {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .topic-actions {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .complete-btn,
+  .revision-btn {
+    width: 100%;
+    text-align: center;
     justify-content: center;
   }
 
@@ -626,5 +673,40 @@
 
   .topic-item {
     padding: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .progress-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .subject-tab {
+    flex-basis: 100%;
+  }
+
+  .topic-actions {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-title h1 {
+    font-size: 1.3rem;
+  }
+
+  .dashboard-title p,
+  .dashboard-user {
+    font-size: 0.95rem;
+  }
+
+  .unit-header {
+    padding: 14px;
+  }
+
+  .unit-title {
+    gap: 6px;
+  }
+
+  .unit-progress-text {
+    width: 100%;
   }
 }
