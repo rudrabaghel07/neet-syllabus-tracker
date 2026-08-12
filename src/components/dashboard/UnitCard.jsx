@@ -5,23 +5,26 @@ function UnitCard({ unit, unitProgress, openUnit, onToggleUnit, progress, onTogg
 
   return (
     <div className="unit-card">
-      <button type="button" className="unit-header" onClick={() => onToggleUnit(unit.id)}>
-        <div className="unit-title">
-          <span>{unit.name}</span>
-          <span className="unit-progress-text">
-            {unitProgress.completed} / {unitProgress.total}
-          </span>
+      <button type="button" className={`unit-header ${isOpen ? "open" : ""}`} onClick={() => onToggleUnit(unit.id)}>
+        <div>
+          <p className="unit-label">Unit</p>
+          <h3>{unit.name}</h3>
         </div>
 
-        <span className="unit-toggle">{isOpen ? "▴" : "▾"}</span>
+        <div className="unit-meta">
+          <span className="unit-progress-text">
+            {unitProgress.completed}/{unitProgress.total}
+          </span>
+          <span className="unit-toggle">{isOpen ? "▴" : "▾"}</span>
+        </div>
       </button>
 
       {isOpen && (
         <div className="unit-content">
           <div className="unit-progress">
             <div className="unit-progress-info">
-              <span>{unitProgress.completed} / {unitProgress.total} topics completed</span>
-              <span>{unitProgress.percentage}%</span>
+              <span>{unitProgress.completed}/{unitProgress.total} topics completed</span>
+              <strong>{unitProgress.percentage}%</strong>
             </div>
 
             <div className="unit-progress-bar">

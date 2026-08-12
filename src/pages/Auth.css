@@ -93,16 +93,42 @@
   z-index: 5;
   width: min(430px, 100%);
   max-width: 100%;
-  padding: clamp(24px, 4vw, 38px);
+  padding: 28px 22px;
   box-sizing: border-box;
-  border: 1px solid rgba(255, 255, 255, 0.13);
-  border-radius: 24px;
-  background: rgba(255, 255, 255, 0.94);
-  backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(20px);
   box-shadow:
-    0 30px 80px rgba(0, 0, 0, 0.42),
-    0 0 50px rgba(37, 99, 235, 0.10);
+    0 28px 68px rgba(15, 23, 42, 0.18),
+    0 0 34px rgba(59, 130, 246, 0.12);
   animation: cardEnter 0.7s cubic-bezier(.2,.8,.2,1);
+}
+
+@media (max-width: 480px) {
+  .auth-card {
+    padding: 22px 18px;
+    border-radius: 24px;
+  }
+
+  .auth-heading {
+    margin-bottom: 22px;
+  }
+
+  .input-wrap {
+    min-height: 50px;
+    gap: 10px;
+  }
+
+  .auth-button {
+    padding: 16px 18px;
+    min-height: 50px;
+  }
+
+  .auth-message,
+  .resend-box {
+    padding: 14px 16px;
+  }
 }
 
 .register-card {
@@ -205,6 +231,29 @@
   border: 1.5px solid #dbe3ef;
   border-radius: 12px;
   background: #f8fafc;
+  transition: 0.25s ease;
+}
+
+.auth-button {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  width: 100%;
+  margin-top: 4px;
+  padding: 14px 18px;
+  min-height: 48px;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(110deg, #2563eb, #4f46e5, #7c3aed);
+  background-size: 200% 100%;
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 800;
+  box-shadow: 0 12px 25px rgba(79, 70, 229, 0.25);
   transition: 0.25s ease;
 }
 

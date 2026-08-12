@@ -1,8 +1,8 @@
-import { useEffect, useState } from "react";
 import {
-  createUserWithEmailAndPassword,
-  sendEmailVerification,
+    createUserWithEmailAndPassword,
+    sendEmailVerification,
 } from "firebase/auth";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { auth } from "../firebase";
 import "./Auth.css";
@@ -14,6 +14,7 @@ function Register() {
   const [loading, setLoading] = useState(false);
   const [verificationSent, setVerificationSent] = useState(false);
   const [resendTimer, setResendTimer] = useState(0);
+  const [showPassword, setShowPassword] = useState(false);
 
   const navigate = useNavigate();
 
@@ -132,13 +133,21 @@ function Register() {
             <div className="input-wrap">
               <span>🔒</span>
               <input
-                type="password"
+                type={showPassword ? "text" : "password"}
                 placeholder="Minimum 6 characters"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
                 minLength={6}
               />
+              <button
+                type="button"
+                className="password-toggle"
+                onClick={() => setShowPassword((previous) => !previous)}
+                aria-label={showPassword ? "Hide password" : "Show password"}
+              >
+                {showPassword ? "🙈" : "👁️"}
+              </button>
             </div>
           </div>
 

@@ -1,7 +1,9 @@
 function TopicItem({ topic, topicProgress, onToggleComplete, onToggleRevision }) {
   return (
     <li className="topic-item">
-      <span className="topic-name">{topic.name}</span>
+      <div className="topic-name-wrap">
+        <span className="topic-name">{topic.name}</span>
+      </div>
 
       <div className="topic-actions">
         <button
