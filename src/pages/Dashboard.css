@@ -971,3 +971,600 @@
     font-size: 13px;
   }
 }
+
+/* =========================================================
+   MOBILE-FIRST POLISH
+   These overrides keep desktop styling intact and make the
+   dashboard compact, readable and touch-friendly on phones.
+   ========================================================= */
+
+.search-controls {
+  width: 100%;
+}
+
+.search-input {
+  width: 100%;
+  box-sizing: border-box;
+  min-height: 44px;
+  padding: 11px 14px;
+  border: 1px solid #dbe3ef;
+  border-radius: 12px;
+  outline: none;
+  background: rgba(255, 255, 255, 0.92);
+  color: #0f172a;
+  font: inherit;
+  font-size: 0.92rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.search-input::placeholder {
+  color: #94a3b8;
+}
+
+.search-input:focus {
+  border-color: #60a5fa;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+.dashboard.dark .search-input {
+  background: rgba(15, 23, 42, 0.9);
+  border-color: rgba(148, 163, 184, 0.25);
+  color: #f8fafc;
+}
+
+.dashboard.dark .search-input::placeholder {
+  color: #94a3b8;
+}
+
+
+/* =========================================================
+   PHONE: <= 600px
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+  .dashboard {
+    padding: 8px 8px 24px;
+    overflow-x: hidden;
+  }
+
+  .dashboard::before {
+    display: none;
+  }
+
+  .dashboard-header,
+  .progress-card {
+    border-radius: 16px;
+  }
+
+  /* ---------- Header ---------- */
+
+  .dashboard-header {
+    gap: 12px;
+    margin-bottom: 10px;
+    padding: 13px;
+  }
+
+  .dashboard-title {
+    gap: 10px;
+  }
+
+  .dashboard-brand {
+    gap: 9px;
+  }
+
+  .brand-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+  }
+
+  .dashboard-title h1 {
+    font-size: 1.2rem;
+    line-height: 1.2;
+  }
+
+  .eyebrow {
+    font-size: 0.62rem;
+    letter-spacing: 0.13em;
+  }
+
+  .dashboard-userbox {
+    gap: 2px;
+    padding-left: 47px;
+  }
+
+  .dashboard-user {
+    font-size: 0.82rem;
+    margin: 0;
+  }
+
+  .dashboard-email {
+    font-size: 0.72rem;
+    margin: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .search-controls {
+    width: 100%;
+  }
+
+  .search-input {
+    min-height: 42px;
+    padding: 9px 12px;
+    border-radius: 11px;
+    font-size: 0.85rem;
+  }
+
+  .header-actions {
+    gap: 8px;
+    width: 100%;
+    justify-content: stretch;
+  }
+
+  .theme-toggle,
+  .logout-btn {
+    min-height: 40px;
+    padding: 8px 12px;
+    font-size: 0.82rem;
+  }
+
+  .theme-toggle {
+    flex: 0 0 44px;
+    padding: 0;
+  }
+
+  .logout-btn {
+    flex: 1;
+  }
+
+
+  /* ---------- Progress ---------- */
+
+  .progress-section {
+    margin-bottom: 12px;
+  }
+
+  .progress-card {
+    padding: 13px;
+  }
+
+  .progress-card-heading {
+    gap: 8px;
+    margin-bottom: 10px;
+  }
+
+  .progress-card-heading.compact h2 {
+    font-size: 1rem;
+  }
+
+  .progress-summary-box {
+    width: 100%;
+    justify-content: space-between;
+    gap: 8px;
+  }
+
+  .progress-summary {
+    font-size: 0.78rem;
+    margin: 0;
+  }
+
+  .progress-badge {
+    min-width: 46px;
+    min-height: 28px;
+    padding: 0 8px;
+    font-size: 0.78rem;
+  }
+
+
+  /* ---------- Class filter ---------- */
+
+  .filters-row {
+    margin-top: 10px;
+    margin-bottom: 11px;
+  }
+
+  .filter-pill-row {
+    gap: 3px;
+    padding: 3px;
+    border-radius: 10px;
+  }
+
+  .filter-pill {
+    min-height: 38px;
+    padding: 7px 4px;
+    border-radius: 8px;
+    font-size: 0.78rem;
+  }
+
+
+  /* ---------- Metric cards: 2 x 2 ---------- */
+
+  .progress-stats,
+  .mobile-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 7px;
+    margin-top: 10px;
+  }
+
+  .stat-card.water-card {
+    min-height: 88px;
+    border-radius: 13px;
+  }
+
+  .water-content {
+    padding: 9px 6px;
+  }
+
+  .water-content h3 {
+    font-size: 0.7rem;
+  }
+
+  .water-content p {
+    margin-top: 4px;
+    font-size: 1rem;
+  }
+
+  .water-fill::before,
+  .water-fill::after {
+    height: 12px;
+  }
+
+
+  /* ---------- Overall progress ---------- */
+
+  .progress-bar-container {
+    margin-top: 13px;
+  }
+
+  .progress-info {
+    margin-bottom: 5px;
+    font-size: 0.74rem;
+  }
+
+  .progress-bar {
+    height: 8px;
+  }
+
+
+  /* ---------- Subject tabs ---------- */
+
+  .subject-section {
+    margin-top: 4px;
+  }
+
+  .subject-tabs {
+    margin-bottom: 10px;
+  }
+
+  .subject-scroll {
+    gap: 7px;
+    padding: 2px 1px 6px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .subject-tab {
+    flex: 0 0 auto !important;
+    min-height: 38px;
+    padding: 8px 15px;
+    border-radius: 10px;
+    font-size: 0.8rem;
+    box-shadow: 0 5px 12px rgba(15, 23, 42, 0.05);
+  }
+
+
+  /* ---------- Biology tabs, if enabled ---------- */
+
+  .biology-subtabs {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    gap: 7px;
+    margin: 9px 0 12px;
+    padding-bottom: 3px;
+    scrollbar-width: none;
+  }
+
+  .biology-tab {
+    flex: 0 0 auto;
+    min-width: auto;
+    min-height: 38px;
+    padding: 8px 14px;
+    font-size: 0.78rem;
+  }
+
+
+  /* ---------- Subject heading ---------- */
+
+  .subject-panel {
+    padding: 0;
+  }
+
+  .subject-panel-heading {
+    margin: 3px 2px 9px;
+  }
+
+  .subject-panel-heading h2 {
+    margin-bottom: 3px;
+    font-size: 1.05rem;
+  }
+
+  .subject-panel-heading p {
+    font-size: 0.75rem;
+  }
+
+
+  /* ---------- Unit cards ---------- */
+
+  .unit-card {
+    margin-bottom: 8px;
+    border-radius: 13px;
+    box-shadow: 0 5px 14px rgba(15, 23, 42, 0.05);
+  }
+
+  .unit-header {
+    min-height: 56px;
+    padding: 11px 12px;
+    gap: 8px;
+  }
+
+  .unit-title {
+    gap: 5px;
+  }
+
+  .unit-label {
+    margin-bottom: 3px;
+    font-size: 0.58rem;
+    letter-spacing: 0.08em;
+  }
+
+  .unit-header h3 {
+    font-size: 0.86rem;
+    line-height: 1.3;
+  }
+
+  .unit-meta {
+    gap: 5px;
+    flex-shrink: 0;
+  }
+
+  .unit-progress-text {
+    font-size: 0.68rem;
+    white-space: nowrap;
+  }
+
+  .unit-toggle {
+    font-size: 0.85rem;
+  }
+
+  .unit-progress {
+    padding: 9px 12px 10px;
+  }
+
+  .unit-progress-info {
+    margin-bottom: 5px;
+    font-size: 0.7rem;
+  }
+
+  .unit-progress-bar {
+    height: 6px;
+  }
+
+
+  /* ---------- Topics ---------- */
+
+  .topic-item {
+    gap: 8px;
+    padding: 10px 12px;
+  }
+
+  .topic-name {
+    font-size: 0.82rem;
+    line-height: 1.35;
+  }
+
+  .topic-actions {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 6px;
+  }
+
+  .complete-btn,
+  .revision-btn {
+    width: 100%;
+    min-height: 38px;
+    padding: 7px 6px;
+    border-radius: 9px;
+    font-size: 0.72rem;
+  }
+
+
+  /* ---------- Search result groups ---------- */
+
+  .search-group-heading {
+    margin-bottom: 7px;
+  }
+
+  .search-group-heading h3 {
+    font-size: 0.95rem;
+  }
+
+  .empty-results {
+    padding: 20px 12px;
+    text-align: center;
+  }
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES: <= 380px
+   ========================================================= */
+
+@media (max-width: 380px) {
+
+  .dashboard {
+    padding-left: 6px;
+    padding-right: 6px;
+  }
+
+  .dashboard-header,
+  .progress-card {
+    padding: 11px;
+  }
+
+  .dashboard-title h1 {
+    font-size: 1.1rem;
+  }
+
+  .dashboard-userbox {
+    padding-left: 47px;
+  }
+
+  .filter-pill {
+    font-size: 0.72rem;
+  }
+
+  .stat-card.water-card {
+    min-height: 82px;
+  }
+
+  .water-content p {
+    font-size: 0.92rem;
+  }
+
+  .unit-header {
+    padding: 10px;
+  }
+
+  .unit-header h3 {
+    font-size: 0.82rem;
+  }
+
+  .unit-progress-text {
+    font-size: 0.64rem;
+  }
+
+  .topic-item {
+    padding: 9px 10px;
+  }
+
+  .topic-name {
+    font-size: 0.78rem;
+  }
+
+  .complete-btn,
+  .revision-btn {
+    font-size: 0.68rem;
+    min-height: 36px;
+  }
+}
+
+
+/* =========================================================
+   SPECIAL MEMBER BANNER
+   ========================================================= */
+
+.special-member-banner-section {
+  max-width: 1120px;
+  margin: 0 auto 18px;
+}
+
+.special-member-banner {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border: 1px solid rgba(124, 58, 237, 0.20);
+  border-radius: 18px;
+  padding: 13px 16px;
+  background: linear-gradient(135deg, rgba(255,255,255,.96), rgba(245,243,255,.96));
+  color: #312e81;
+  cursor: pointer;
+  text-align: left;
+  box-shadow: 0 12px 28px rgba(79, 70, 229, 0.10);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.special-member-banner:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 16px 32px rgba(79, 70, 229, 0.16);
+}
+
+.special-member-banner-icon {
+  width: 40px;
+  height: 40px;
+  flex: 0 0 40px;
+  display: grid;
+  place-items: center;
+  border-radius: 13px;
+  background: linear-gradient(135deg, #dbeafe, #ede9fe);
+  font-size: 1.2rem;
+}
+
+.special-member-banner-text {
+  min-width: 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.special-member-banner-text strong {
+  font-size: .95rem;
+  color: #3730a3;
+}
+
+.special-member-banner-text small {
+  color: #64748b;
+  font-size: .78rem;
+}
+
+.special-member-banner-arrow {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #6366f1;
+}
+
+.dashboard.dark .special-member-banner {
+  background: linear-gradient(135deg, rgba(30, 41, 59, .96), rgba(49, 46, 129, .34));
+  border-color: rgba(139, 92, 246, .28);
+  color: #ede9fe;
+}
+
+.dashboard.dark .special-member-banner-text strong {
+  color: #ddd6fe;
+}
+
+.dashboard.dark .special-member-banner-text small {
+  color: #cbd5e1;
+}
+
+@media (max-width: 480px) {
+  .special-member-banner-section {
+    margin-bottom: 14px;
+  }
+
+  .special-member-banner {
+    padding: 11px 12px;
+    border-radius: 16px;
+  }
+
+  .special-member-banner-icon {
+    width: 36px;
+    height: 36px;
+    flex-basis: 36px;
+  }
+
+  .special-member-banner-text strong {
+    font-size: .88rem;
+  }
+
+  .special-member-banner-text small {
+    font-size: .72rem;
+  }
+}

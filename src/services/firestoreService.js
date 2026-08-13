@@ -1,14 +1,14 @@
 import {
+  addDoc,
+  collection,
   doc,
-  setDoc,
   getDoc,
   getDocs,
-  collection,
   serverTimestamp,
+  setDoc,
 } from "firebase/firestore";
 
 import { db } from "../firebase";
-
 
 // --------------------------------------------------
 // Save / Update Topic Progress
@@ -35,7 +35,6 @@ export async function saveTopicProgress(
   });
 }
 
-
 // --------------------------------------------------
 // Get Single Topic Progress
 // --------------------------------------------------
@@ -52,8 +51,7 @@ export async function getTopicProgress(
     topicId
   );
 
-  const topicSnapshot =
-    await getDoc(topicRef);
+  const topicSnapshot = await getDoc(topicRef);
 
   if (topicSnapshot.exists()) {
     return topicSnapshot.data();
@@ -65,14 +63,11 @@ export async function getTopicProgress(
   };
 }
 
-
 // --------------------------------------------------
 // Get All Topic Progress
 // --------------------------------------------------
 
-export async function getAllTopicProgress(
-  userId
-) {
+export async function getAllTopicProgress(userId) {
   const progressRef = collection(
     db,
     "users",
@@ -80,24 +75,58 @@ export async function getAllTopicProgress(
     "progress"
   );
 
-  const progressSnapshot =
-    await getDocs(progressRef);
+  const progressSnapshot = await getDocs(progressRef);
 
   const progressData = {};
 
-  progressSnapshot.forEach(
-    (document) => {
-      const data = document.data();
+  progressSnapshot.forEach((document) => {
+    const data = document.data();
 
-      progressData[document.id] = {
-        completed:
-          data.completed === true,
-
-        revision:
-          data.revision === true,
-      };
-    }
-  );
+    progressData[document.id] = {
+      completed: data.completed === true,
+      revision: data.revision === true,
+    };
+  });
 
   return progressData;
+}
+
+// --------------------------------------------------
+// Save Complaint
+// --------------------------------------------------
+
+export async function saveComplaint({
+  userId,
+  userEmail,
+  userName,
+  complaint,
+}) {
+  if (!userId) {
+    throw new Error("User is not logged in.");
+  }
+
+  if (!complaint || !complaint.trim()) {
+    throw new Error("Complaint cannot be empty.");
+  }
+
+  const complaintsRef = collection(
+    db,
+    "complaints"
+  );
+
+  const complaintData = {
+    userId,
+    userEmail: userEmail || "",
+    userName: userName || "",
+    complaint: complaint.trim(),
+    status: "pending",
+    createdAt: serverTimestamp(),
+  };
+
+  const complaintDocument = await addDoc(
+    complaintsRef,
+    complaintData
+  );
+
+  return complaintDocument.id;
 }

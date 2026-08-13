@@ -602,6 +602,13 @@ function Dashboard() {
       ?.split("@")[0] ||
     "Student";
 
+  const SPECIAL_USER_EMAIL = "vishwakarmaniva@gmail.com";
+  // const SPECIAL_USER_EMAIL = "rudrabaghel68@gmail.com";
+
+  const isSpecialUser =
+    currentUser?.email?.toLowerCase() ===
+    SPECIAL_USER_EMAIL.toLowerCase();
+
 
   /* =======================================================
      UI
@@ -650,15 +657,9 @@ function Dashboard() {
           {/* USER */}
 
           <div className="dashboard-userbox">
-
             <p className="dashboard-user">
               {displayName}
             </p>
-
-            <p className="dashboard-email">
-              {currentUser?.email}
-            </p>
-
           </div>
 
 
@@ -923,6 +924,24 @@ function Dashboard() {
       {/* =================================================
           SUBJECT SECTION
       ================================================= */}
+
+      {isSpecialUser && (
+        <section className="special-member-banner-section">
+          <button
+            type="button"
+            className="special-member-banner"
+            onClick={() => navigate("/special-member")}
+            aria-label="Open Special Member page"
+          >
+            <span className="special-member-banner-icon">✨</span>
+            <span className="special-member-banner-text">
+              <strong>Special Member</strong>
+              <small>Exclusive features are waiting for you</small>
+            </span>
+            <span className="special-member-banner-arrow">→</span>
+          </button>
+        </section>
+      )}
 
       <section className="subject-section">
 
