@@ -584,6 +584,61 @@ const syllabusData = {
             id: "physics-u7-t23",
             name: "Capillary rise",
             classLevels: ["11"]
+          },
+          {
+            id: "physics-u7-t24",
+            name: "Heat",
+            classLevels: ["11"]
+          },
+          {
+            id: "physics-u7-t25",
+            name: "Temperature",
+            classLevels: ["11"]
+          },
+          {
+            id: "physics-u7-t26",
+            name: "Thermal expansion",
+            classLevels: ["11"]
+          },
+          {
+            id: "physics-u7-t27",
+            name: "Specific heat capacity",
+            classLevels: ["11"]
+          },
+          {
+            id: "physics-u7-t28",
+            name: "Calorimetry",
+            classLevels: ["11"]
+          },
+          {
+            id: "physics-u7-t29",
+            name: "Change of state",
+            classLevels: ["11"]
+          },
+          {
+            id: "physics-u7-t30",
+            name: "Latent heat",
+            classLevels: ["11"]
+          },
+          {
+            id: "physics-u7-t31",
+            name: "Heat transfer",
+            classLevels: ["11"]
+          },
+          {
+            id: "physics-u7-t32",
+            name: "Conduction",
+            classLevels: ["11"]
+          },
+          {
+            id: "physics-u7-t33",
+            name: "Convection",
+            classLevels: ["11"]
+          },
+          {
+            id: "physics-u7-t34",
+            name: "Radiation",
+            classLevels: ["11"]
           }
         ]
       },
