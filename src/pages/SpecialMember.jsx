@@ -5,8 +5,10 @@ import { saveComplaint } from "../services/firestoreService";
 import "./SpecialMember.css";
 const SPECIAL_USER_NAME = "Nandini";
 
-const SPECIAL_USER_EMAIL = "vishwakarmaniva@gmail.com";
-// const SPECIAL_USER_EMAIL = "rudrabaghel68@gmail.com";
+// const SPECIAL_USER_EMAIL = "vishwakarmaniva@gmail.com";
+
+// const SPECIAL_USER_EMAIL = "nandinivish01@gmail.com";
+const SPECIAL_USER_EMAIL = "rudrabaghel68@gmail.com";
 
 function SpecialMember() {
   const navigate = useNavigate();

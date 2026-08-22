@@ -602,8 +602,10 @@ function Dashboard() {
       ?.split("@")[0] ||
     "Student";
 
-  const SPECIAL_USER_EMAIL = "vishwakarmaniva@gmail.com";
-  // const SPECIAL_USER_EMAIL = "rudrabaghel68@gmail.com";
+  // const SPECIAL_USER_EMAIL = "vishwakarmaniva@gmail.com";
+  // const SPECIAL_USER_EMAIL = "nandinivish01@gmail.com"
+  
+  const SPECIAL_USER_EMAIL = "rudrabaghel68@gmail.com";
 
   const isSpecialUser =
     currentUser?.email?.toLowerCase() ===
